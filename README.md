@@ -174,28 +174,18 @@ https://github.com/user-attachments/assets/8b44c5de-55aa-4d32-bbcc-efef319a36d3
 **Fix:** Added `if (decoded.role === 'admin')` check before ownership validation  
 **File:** `backend/src/controllers/videoController.js` (streamVideo function)
 
-### Bug 5: MongoDB Credentials Leaked to GitHub
-**Issue:** `.env` file with MongoDB credentials was committed to repository  
-**Cause:** Missing root-level `.gitignore` file  
-**Fix:**  
-1. Created root `.gitignore` with `.env` exclusion
-2. Removed `.env` from git tracking: `git rm --cached backend/.env`
-3. Rotated MongoDB Atlas password
-4. Deleted and recreated GitHub repository
-**File:** `.gitignore` (root level)
-
-### Bug 6: Helmet CSP Blocking Video Streaming
+### Bug 5: Helmet CSP Blocking Video Streaming
 **Issue:** Content Security Policy blocking blob: URLs in production  
 **Fix:** Updated Helmet configuration to allow `blob:` and `self` in `mediaSrc` directive  
 **File:** `backend/src/server.js`
 
-### Bug 7: CORS Errors After Deployment
+### Bug 6: CORS Errors After Deployment
 **Issue:** Frontend couldn't connect to backend due to CORS restrictions  
 **Cause:** `FRONTEND_URL` environment variable not updated with actual Vercel domain  
 **Fix:** Updated Render environment variable with correct Vercel URL  
 **Platform:** Render Dashboard → Environment tab
 
-### Bug 8: Excessive Debug Logging in Production
+### Bug 7: Excessive Debug Logging in Production
 **Issue:** 40+ console.log statements in streamVideo causing log pollution  
 **Fix:** Replaced all `console.log`/`console.error` with `logger.debug`/`logger.warn`  
 **File:** `backend/src/controllers/videoController.js`
