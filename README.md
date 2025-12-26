@@ -11,7 +11,11 @@ A production-ready, full-stack video processing platform with real-time updates,
 
 
 
-Uploading DEMO OF THE APPLICATION.mp4…
+
+
+https://github.com/user-attachments/assets/8b44c5de-55aa-4d32-bbcc-efef319a36d3
+
+
 
 
 
